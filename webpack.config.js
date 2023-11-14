@@ -17,16 +17,12 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
-      },
-      {
         test: /\.(png|jpg|gif|svg)$/i,
         use: [
           {
             loader: 'url-loader',
             options: {
-              limit: 8192, // Chuyển thành base64 nếu kích thước nhỏ hơn 8KB
+              limit: 8192,
               name: 'images/[name].[ext]',
             },
           },
@@ -34,7 +30,11 @@ module.exports = {
       },
       {
         test: /\.css$/i,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        use: [
+          MiniCssExtractPlugin.loader,
+          'css-loader',
+          'postcss-loader',
+        ],
       },
     ],
   },
@@ -44,7 +44,6 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
-    publicPath: '/dist/'
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -54,5 +53,5 @@ module.exports = {
       filename: '[name].css',
       chunkFilename: '[id].css',
     }),
-  ],
+  ]
 };
