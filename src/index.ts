@@ -1,7 +1,11 @@
 import './assets/styles/main.css'
 import './assets/favicon/favicon-webpack.png'
 
+import axios from 'axios'
 
-console.log('Hello word!');
-console.log('Hello Trung Hiếu!');
-console.log('111');
+const getUsers = async () => {
+  const res = await axios.get('https://dlfkjf-8080.csb.app/users')
+  console.log(res.data);
+}
+
+getUsers()
