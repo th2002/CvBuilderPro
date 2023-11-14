@@ -1,0 +1,106 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "username": "user1",
+      "password": "password1",
+      "personalInfo": {
+        "fullName": "Nguyen Van A",
+        "email": "user1@example.com",
+        "phone": "123456789"
+      },
+      "cvList": [
+        {
+          "cvId": 1,
+          "title": "CV 1",
+          "sections": {
+            "personalInfo": {
+              "fullName": "Nguyen Van A",
+              "email": "user1@example.com",
+              "phone": "123456789"
+            },
+            "education": [
+              {
+                "degree": "Bachelor of Science",
+                "major": "Computer Science",
+                "school": "University A",
+                "graduationYear": 2020
+              }
+            ],
+            "experience": [
+              {
+                "title": "Software Developer",
+                "company": "Company X",
+                "startDate": "2020-01-01",
+                "endDate": "2022-01-01",
+                "description": "Worked on web development projects."
+              }
+            ],
+            "skills": [
+              "JavaScript",
+              "React",
+              "Node.js"
+            ],
+            "tools": [
+              "Figma",
+              "Postman",
+              "Trello",
+              "Slack"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "username": "user2",
+      "password": "password2",
+      "personalInfo": {
+        "fullName": "Tran Thi B",
+        "email": "user2@example.com",
+        "phone": "987654321"
+      },
+      "cvList": [
+        {
+          "cvId": 2,
+          "title": "CV 2",
+          "sections": {
+            "personalInfo": {
+              "fullName": "Tran Thi B",
+              "email": "user2@example.com",
+              "phone": "987654321"
+            },
+            "education": [
+              {
+                "degree": "Master of Business Administration",
+                "major": "Finance",
+                "school": "University B",
+                "graduationYear": 2021
+              }
+            ],
+            "experience": [
+              {
+                "title": "Financial Analyst",
+                "company": "Company Y",
+                "startDate": "2021-02-01",
+                "endDate": "2023-02-01",
+                "description": "Performed financial analysis and forecasting."
+              }
+            ],
+            "skills": [
+              "Financial Analysis",
+              "Budgeting",
+              "Data Analysis"
+            ],
+            "tools": [
+              "Figma",
+              "Postman",
+              "Trello",
+              "Slack"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
