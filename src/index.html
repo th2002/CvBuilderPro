@@ -4,16 +4,69 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./main.css" />
-    <link rel="stylesheet" href="./style.css" />
     <link
       rel="shortcut icon"
       href="./images/favicon-webpack.png"
       type="image/x-icon" />
     <title>Trang chủ - CV Builder Pro</title>
+    <script
+      src="https://kit.fontawesome.com/e50ef263db.js"
+      crossorigin="anonymous"></script>
   </head>
   <body>
-    <canvas></canvas>
-
-    <script src="./app.js"></script>
+    <div
+      class="flex flex-row absolute w-[60%] h-[80%] rounded-2xl bg-white z-[999] left-[50%] top-[50%] -translate-x-[50%] -translate-y-[50%] shadow-2xl shadow-slate-600 overflow-hidden">
+      <div
+        class="flex flex-col items-center pt-52 px-8 gap-6 bg-[#f6f5f7] w-[50%] h-full">
+        <h1 class="text-4xl font-bold">Sign in</h1>
+        <div class="flex flex-row gap-8">
+          <div
+            class="flex justify-center items-center w-16 h-16 rounded-full border-2 cursor-pointer">
+            <i class="fa-brands fa-facebook-f" style="color: #333"></i>
+          </div>
+          <div
+            class="flex justify-center items-center w-16 h-16 rounded-full border-2 cursor-pointer">
+            <i class="fa-brands fa-google" style="color: #333"></i>
+          </div>
+          <div
+            class="flex justify-center items-center w-16 h-16 rounded-full border-2 cursor-pointer">
+            <i class="fa-brands fa-github" style="color: #333"></i>
+          </div>
+        </div>
+        <p>or use your account</p>
+        <div class="relative w-full">
+          <input
+            type="text"
+            class="pl-9 pr-4 py-3 w-full h-14 rounded-lg bg-slate-200 placeholder:text-lg"
+            spellcheck="false"
+            placeholder="username" />
+          <i class="fa-solid fa-user absolute left-3 top-5 text-gray-800"></i>
+        </div>
+        <div class="relative w-full">
+          <input
+            type="password"
+            class="pl-9 pr-4 py-3 w-full h-14 rounded-lg bg-slate-200 placeholder:text-lg"
+            spellcheck="false"
+            placeholder="password" />
+          <i class="fa-solid fa-lock absolute left-3 top-5 text-gray-800"></i>
+        </div>
+        <p>Forgot your password?</p>
+        <button
+          id="btnLogin"
+          class="w-[50%] h-14 text-white font-bold uppercase bg-[#FF4B2B] rounded-full hover:bg-opacity-75">
+          Sign in
+        </button>
+      </div>
+      <div class="flex justify-center items-center bg-[#FF416C] w-[50%] h-full">
+        <div class="flex flex-col gap-6">
+          <h1 class="font-bold text-white text-4xl">
+            Welcome to CV Builder Pro!
+          </h1>
+          <p class="text-white text-base text-center">
+            Create cv quickly and easily
+          </p>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
