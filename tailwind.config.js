@@ -20,6 +20,8 @@ module.exports = {
           400: '#67748E',
           500: '#344767',
         },
+        'primary': '#0E6CC2',
+        'dark': '#222222'
       },
       fontFamily: {
         Poppins: ['poppins', 'sans-serif']
