@@ -53,6 +53,10 @@ module.exports = {
       filename: 'pages/form.html',
       template: 'src/pages/form.html'
     }),
+    new HtmlWebpackPlugin({
+      filename: 'pages/home.html',
+      template: 'src/pages/home.html'
+    }),
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
