@@ -23,6 +23,9 @@ module.exports = {
         'primary': '#0E6CC2',
         'dark': '#222222'
       },
+      backgroundImage: {
+        'banner': "url('/images/bannercv.png')",
+      },
       fontFamily: {
         Poppins: ['poppins', 'sans-serif']
       },
