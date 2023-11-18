@@ -149,6 +149,7 @@ function handleInputChange() {
           const listItem = document.createElement("li");
           listItem.classList.add("cursor-pointer", "border", "boder-b-2", "py-3", "px-4");
           listItem.textContent = suggestion;
+          suggestionList.classList.remove("hidden")
 
           listItem.addEventListener("click", () => {
             // render dữ liệu đã chọn vào container
@@ -156,6 +157,7 @@ function handleInputChange() {
             // clear dropdown ul khi đã chọn 1 option li
             suggestionList.innerHTML = "";
             inputField.value = ""
+            suggestionList.classList.add("hidden")
           });
 
           // thêm option li vào ul khi input thay đổi
@@ -167,6 +169,7 @@ function handleInputChange() {
           const listItem = document.createElement("li");
           listItem.classList.add("cursor-pointer", "border" ,"boder-b-2", "py-3", "px-4");
           listItem.textContent = suggestion;
+          suggestionList.classList.remove("hidden")
 
           listItem.addEventListener("click", () => {
             // render dữ liệu đã chọn vào container
@@ -174,6 +177,7 @@ function handleInputChange() {
             // clear dropdown ul khi đã chọn 1 option li
             suggestionList.innerHTML = "";
             inputField.value = ""
+            suggestionList.classList.add("hidden")
           });
 
           // thêm option li vào ul khi input thay đổi
@@ -183,6 +187,7 @@ function handleInputChange() {
     } else {
       // clear list option li khi input trống
       suggestionList.innerHTML = "";
+      suggestionList.classList.add("hidden")
     }
   }
 }
