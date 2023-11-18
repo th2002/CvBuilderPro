@@ -4,7 +4,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: './src/index.ts',
+  entry: {
+    index: './src/index.ts',
+    api: './src/API/api.ts',
+    homeController: './src/controllers/servicesController/home.ts',
+    postCvController: './src/controllers/cvController/postCvController.ts'
+  },
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
@@ -42,7 +47,7 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   output: {
-    filename: 'bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
   },
   plugins: [
@@ -55,7 +60,13 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: 'pages/home.html',
-      template: 'src/pages/home.html'
+      template: 'src/pages/home.html',
+      chunks: ['homeController'],
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'pages/add_form.html',
+      template: 'src/pages/add_form.html',
+      chunks: ['postCvController']
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

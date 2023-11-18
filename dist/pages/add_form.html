@@ -7,11 +7,12 @@
       rel="shortcut icon"
       href="../images/favicon-webpack.png"
       type="image/x-icon" />
-    <title>My CV</title>
+    <link rel="stylesheet" href="../index.css" />
+    <title>New CV</title>
     <script
       src="https://kit.fontawesome.com/e50ef263db.js"
       crossorigin="anonymous"></script>
-  <script defer src="../index.bundle.js"></script><script defer src="../api.bundle.js"></script><script defer src="../homeController.bundle.js"></script><script defer src="../postCvController.bundle.js"></script><link href="../index.css" rel="stylesheet"></head>
+  <script defer src="../postCvController.bundle.js"></script></head>
   <body>
     <header class="flex justify-center w-full h-20 mt-10 px-11 font-Poppins">
       <div class="w-[95%] h-full shadow-md">
@@ -32,51 +33,58 @@
             Đinh Lê Trung Hiếu
           </h1>
           <h2 class="mb-2 text-xl font-semibold text-primary">
-            Front-end Development
+            What's your occupation?
           </h2>
-          <p class="mb-8">
-            Over 5 years of professional experience conducting UX research and
-            designing interactive end-to-end user flows. I enjoy working in
-            close collaboration with teams across technology, business and
-            design.
-          </p>
-          <h3 class="text-lg font-semibold text-primary">Contact</h3>
-          <ul class="mb-8">
-            <li>
-              <i class="mr-3 fa-solid fa-envelope"></i>
-              dinhletrunghieu999@gmail.com
+          <div class="flex flex-row items-center gap-4 w-full">
+            <i id="jobIcon" class="fa-solid fa-plus cursor-pointer"></i>
+            <div id="displayJob"></div>
+          </div>
+          <h3 class="text-lg font-semibold text-primary">Add your Contact</h3>
+          <ul class="flex flex-col gap-4 mb-8">
+            <li class="flex flex-row items-center mb-4">
+              <i class="fa-solid fa-envelope mr-2"></i>
+              <i
+                id="emailIcon"
+                class="fa-solid fa-plus cursor-pointer mr-4"></i>
+              <div id="displayEmail"></div>
             </li>
-            <li>
-              <i class="mr-3 fa-brands fa-linkedin"></i>
-              linkedin.com/in/trunghieu1501
+            <li class="flex flex-row items-center mb-4">
+              <i class="fa-brands fa-linkedin mr-[10px]"></i>
+              <div id="displayLinkedin">
+                <i
+                  id="linkedinIcon"
+                  class="fa-solid fa-plus cursor-pointer"></i>
+              </div>
             </li>
-            <li><i class="mr-3 fa-solid fa-phone"></i> +46 98-765 43 21</li>
+            <li class="flex flex-row items-center mb-4">
+              <i class="fa-solid fa-phone mr-2"></i>
+              <div id="displayPhone">
+                <i id="phoneIcon" class="fa-solid fa-plus cursor-pointer"></i>
+              </div>
+            </li>
           </ul>
-          <h3 class="text-lg font-semibold text-primary">Skills</h3>
-          <ul class="mb-8">
-            <li>Product discovery</li>
-            <li>Business analysis</li>
-            <li>UX research</li>
-            <li>User testing</li>
-            <li>Customer journey mapping</li>
-            <li>Information architecture</li>
-            <li>Wireframing</li>
-            <li>Prototyping</li>
-            <li>UI design</li>
-            <li>Illustration</li>
-            <li>Interaction design</li>
-            <li>Design system</li>
-            <li>Design sprints</li>
-            <li>Workshop facilitation</li>
-            <li>A/B testing</li>
-            <li>Kanban, agile & scrum</li>
-            <li>Product management</li>
+          <div class="flex flex-col gap-3 relative">
+            <label for="inputField">Enter Skill or Tool:</label>
+            <input
+              type="text"
+              id="inputField"
+              spellcheck="false"
+              class="w-[300px] h-[30px] border px-2 py-3" />
+            <ul
+              class="absolute left-0 top-20 bg-white w-full"
+              id="suggestionList"></ul>
+            <div id="selectedSkills"></div>
+          </div>
+          <p>or create</p>
+          <h3 class="text-lg font-semibold text-primary">Your Skills</h3>
+          <ul id="displaySkills" class="flex flex-col gap-3 mb-8">
+            <i id="skillsIcon" class="fa-solid fa-plus cursor-pointer"></i>
           </ul>
           <h3 class="text-lg font-semibold text-primary">Tools</h3>
-          <ul>
-            <li>Figma, Sketch, Adobe Illustrator,</li>
-            <li>ProtoPie, Framer, Miro, Notion, Jira</li>
+          <ul id="displayTools" class="flex flex-col gap-3 mb-8">
+            <i id="toolsIcon" class="fa-solid fa-plus cursor-pointer"></i>
           </ul>
+          <div id="selectedSkills"></div>
         </div>
         <div class="w-[70%] py-7 pr-7">
           <div class="flex flex-col gap-3 bg-[#F9F9F9] rounded-lg px-6 py-7">

@@ -5,4 +5,4 @@ function login() {
   window.location.href = './pages/home.html'
 }
 
-document.getElementById('btnLogin').addEventListener('click', login)
+document.getElementById('btnLogin')?.addEventListener('click', login)

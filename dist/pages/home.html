@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
+    <link rel="stylesheet" href="../main.css" />
     <link
       rel="shortcut icon"
       href="../images/favicon-webpack.png"
@@ -11,7 +12,7 @@
     <script
       src="https://kit.fontawesome.com/e50ef263db.js"
       crossorigin="anonymous"></script>
-  <script defer src="../bundle.js"></script><link href="../main.css" rel="stylesheet"></head>
+  <script defer src="../homeController.bundle.js"></script></head>
   <body>
     <div id="root" class="px-8 font-Poppins">
       <header>
@@ -20,18 +21,28 @@
             width="150"
             height="150"
             src="../images/logo-png.png"
-            alt="logo" />
+            alt="logo"
+            class="cursor-pointer" />
           <ul
             class="flex flex-row items-center w-full h-full gap-4 px-4 py-4 shadow-md">
-            <li class=""><a href="#">Home</a></li>
-            <li><a href="#">Mẫu CV</a></li>
+            <li>
+              <a href="#" class="hover:text-primary">Home</a>
+            </li>
+            <li><a href="#" class="hover:text-primary">Mẫu CV</a></li>
           </ul>
         </div>
       </header>
       <main>
-        <h1 class="mt-8 mb-8 text-2xl font-bold uppercase text-primary">
-          My List CV
-        </h1>
+        <div class="flex flex-row items-center gap-8">
+          <h1 class="mt-8 mb-8 text-2xl font-bold uppercase text-primary">
+            My List CV
+          </h1>
+          <button
+            id="btnNextPageAddCv"
+            class="bg-black hover:bg-opacity-75 rounded-full text-white font-semibold w-[120px] h-[40px]">
+            <i class="mr-1 fa-solid fa-plus"></i> New CV
+          </button>
+        </div>
         <div class="flex flex-wrap w-full gap-8">
           <div
             class="shadow-md shadow-slate-600 overflow-hidden group relative h-[300px] bg-black">
