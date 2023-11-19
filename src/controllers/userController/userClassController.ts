@@ -47,4 +47,16 @@ export default class UserController {
     localStorage.setItem("username", user.username);
     localStorage.setItem("fullname", user.personalInfo.fullName);
   }
+
+  logout() {
+    this.clearLocalStorage();
+
+    window.location.href = "../index.html";
+  }
+
+  private clearLocalStorage() {
+    localStorage.removeItem("userId");
+    localStorage.removeItem("username");
+    localStorage.removeItem("fullname");
+  }
 }
