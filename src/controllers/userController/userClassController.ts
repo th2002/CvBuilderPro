@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 export default class UserController {
   private userService: UserService;
 
-  constructor(userService: UserService) {
+  constructor(userService?: UserService) {
     this.userService = userService;
   }
 
