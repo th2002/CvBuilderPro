@@ -32,7 +32,7 @@ btnLogout.addEventListener("click", logout);
             <h2 class="absolute text-white font-bold left-3 top-[70%] z-50">
               <a
                 class="hover:underline hover:decoration-solid"
-                href="./form.html"
+                href="./form.html?id=${cv.cvId}"
                 >${cv.title}</a
               >
             </h2>

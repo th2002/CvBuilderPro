@@ -8,7 +8,8 @@ module.exports = {
     index: './src/index.ts',
     api: './src/API/api.ts',
     homeController: './src/controllers/servicesController/home.ts',
-    postCvController: './src/controllers/cvController/postCvController.ts'
+    postCvController: './src/controllers/cvController/postCvController.ts',
+    cvDetail: './src/controllers/servicesController/cv_detail.ts'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -53,10 +54,12 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
+      chunks: ['index']
     }),
     new HtmlWebpackPlugin({
       filename: 'pages/form.html',
-      template: 'src/pages/form.html'
+      template: 'src/pages/form.html',
+      chunks: ['cvDetail'],
     }),
     new HtmlWebpackPlugin({
       filename: 'pages/home.html',

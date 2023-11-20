@@ -1,5 +1,6 @@
-import UserController from '../userController/userClassController';
-import UserService from '../../models/userModel/getUserModel';
+import UserController from "../userController/userClassController";
+import UserService from "../../models/userModel/getUserModel";
+import { CV } from "../../entity/user";
 import Swal from "sweetalert2";
 
 export function login() {
@@ -44,8 +45,8 @@ export function login() {
 }
 
 export function logout() {
-    const userController = new UserController();
-    userController.logout();
+  const userController = new UserController();
+  userController.logout();
 }
 
 export async function getAllCVByUserId(): Promise<any[]> {
@@ -54,7 +55,7 @@ export async function getAllCVByUserId(): Promise<any[]> {
     await userService.getUsersFromAPI();
 
     const userController = new UserController();
-    const userId = userController.getLocalStorageItem('userId');
+    const userId = userController.getLocalStorageItem("userId");
 
     const allCVs = userService.getAllCV(parseInt(userId, 10));
 
@@ -64,3 +65,38 @@ export async function getAllCVByUserId(): Promise<any[]> {
     throw error;
   }
 }
+
+export async function getCvDetail(): Promise<CV | null> {
+  try {
+    const urlParams = new URLSearchParams(window.location.search);
+    const cvId = urlParams.get("id");
+
+    if (!cvId) {
+      console.error("CV ID is missing in the URL parameters.");
+      return null;
+    }
+
+    const userService = new UserService();
+    await userService.getUsersFromAPI();
+
+    const userController = new UserController();
+    const userId = userController.getLocalStorageItem("userId");
+
+    if (!userId) {
+      console.error("User ID is missing in local storage.");
+      return null;
+    }
+
+    const cv = userService.getCV(parseInt(userId, 10), parseInt(cvId, 10));
+    if (!cv) {
+      console.error(`CV with ID ${cvId} not found for user ${userId}.`);
+      return null;
+    }
+
+    return cv;
+  } catch (error) {
+    console.error(`Error in getCvDetail: ${error.message}`);
+    throw error;
+  }
+}
+

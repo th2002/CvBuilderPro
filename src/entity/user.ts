@@ -16,10 +16,12 @@ interface Education {
 interface PersonalInfo {
     fullName: string;
     email: string;
+    linkedin: string;
     phone: string;
 }
 
 interface CVSection {
+    nominee: string;
     personalInfo: PersonalInfo;
     education: Education[];
     experience: Experience[];
@@ -27,9 +29,10 @@ interface CVSection {
     tools: string[];
 }
 
-interface CV {
+export interface CV {
     cvId: number;
     title: string;
+    description: string;
     sections: CVSection;
     createDate: string;
     updateDate: string;
