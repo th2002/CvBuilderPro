@@ -25,4 +25,39 @@ export default class UserService {
             (u) => u.username === username && u.password === password
         ) || null;
     }
+
+    // find cv where user id
+    getCV(userId: number, cvId: number): any | null {
+        try {
+            const user = this.users.find(u => u.id === userId);
+
+            if (user) {
+                const cv = user.cvList.find(cv => cv.cvId === cvId);
+                return cv || null;
+            } else {
+                console.error(`User with ID ${userId} not found.`);
+                return null;
+            }
+        } catch (error) {
+            console.error(`Error getting CV: ${error.message}`);
+            throw error;
+        }
+    }
+
+    getAllCV(userId: number): any | null {
+        try {
+            const user = this.users.find(u => u.id === userId);
+
+            if (user) {
+                const cv = user.cvList;
+                return cv || null;
+            } else {
+                console.error(`User with ID ${userId} not found.`);
+                return null;
+            }
+        } catch (error) {
+            console.error(`Error getting CV: ${error.message}`);
+            throw error;
+        }
+    }
 }

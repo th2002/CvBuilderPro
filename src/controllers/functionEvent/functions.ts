@@ -1,4 +1,4 @@
-import UserController from "../userController/userClassController";
+import UserController from '../userController/userClassController';
 import UserService from '../../models/userModel/getUserModel';
 import Swal from "sweetalert2";
 
@@ -46,4 +46,21 @@ export function login() {
 export function logout() {
     const userController = new UserController();
     userController.logout();
+}
+
+export async function getAllCVByUserId(): Promise<any[]> {
+  try {
+    const userService = new UserService();
+    await userService.getUsersFromAPI();
+
+    const userController = new UserController();
+    const userId = userController.getLocalStorageItem('userId');
+
+    const allCVs = userService.getAllCV(parseInt(userId, 10));
+
+    return allCVs || [];
+  } catch (error) {
+    console.error(`Error in getAllCVByUserId: ${error.message}`);
+    throw error;
+  }
 }

@@ -25,7 +25,9 @@ export default class UserController {
           timer: 1500,
         });
 
-        window.location.href = "./pages/home.html";
+        setTimeout(function () {
+          window.location.href = "./pages/home.html";
+        }, 1500);
         return user;
       } else {
         Swal.fire({
@@ -46,6 +48,11 @@ export default class UserController {
     localStorage.setItem("userId", user.id.toString());
     localStorage.setItem("username", user.username);
     localStorage.setItem("fullname", user.personalInfo.fullName);
+  }
+
+  getLocalStorageItem(key: string): string | null {
+    // Get item from local storage
+    return localStorage.getItem(key);
   }
 
   logout() {

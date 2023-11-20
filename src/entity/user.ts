@@ -31,6 +31,8 @@ interface CV {
     cvId: number;
     title: string;
     sections: CVSection;
+    createDate: string;
+    updateDate: string;
 }
 
 export interface User {
