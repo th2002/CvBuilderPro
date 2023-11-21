@@ -9,7 +9,8 @@ module.exports = {
     api: './src/API/api.ts',
     homeController: './src/controllers/servicesController/home.ts',
     postCvController: './src/controllers/cvController/postCvController.ts',
-    cvDetail: './src/controllers/servicesController/cv_detail.ts'
+    cvDetail: './src/controllers/servicesController/cv_detail.ts',
+    eventPostCv: './src/controllers/functionEvent/eventPostCv.ts'
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -69,7 +70,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'pages/add_form.html',
       template: 'src/pages/add_form.html',
-      chunks: ['postCvController']
+      chunks: ['postCvController', 'eventPostCv']
     }),
     new MiniCssExtractPlugin({
       filename: '[name].css',

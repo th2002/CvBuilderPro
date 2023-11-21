@@ -11,7 +11,7 @@ import { getCvDetail } from "../functionEvent/functions";
       return `
         <h1 class="text-xl text-[#222] font-bold">${exp.title} - ${exp.company}</h1>
         <h3 class="text-lg font-semibold text-primary">${exp.startDate} - ${exp.endDate}</h3>
-        <li class="mb-8 ml-5 list-disc">${exp.description}</li>
+        <li class="mb-8 list-disc">${exp.description}</li>
       `;
     })
     .join('');
@@ -24,7 +24,7 @@ import { getCvDetail } from "../functionEvent/functions";
           ${edu.school}
         </h1>
         <p class="mb-8">
-          School ${edu.degree} with major in web design ${edu.major}, Graduation year ${edu.graduationYear}
+          School ${edu.degree} with major in ${edu.major}, Graduation year ${edu.graduationYear}
         </p>
       `
     })

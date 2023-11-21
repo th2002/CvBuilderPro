@@ -12,7 +12,7 @@
     <script
       src="https://kit.fontawesome.com/e50ef263db.js"
       crossorigin="anonymous"></script>
-  <script defer src="../postCvController.bundle.js"></script></head>
+  <script defer src="../postCvController.bundle.js"></script><script defer src="../eventPostCv.bundle.js"></script></head>
   <body>
     <header class="flex justify-center w-full h-20 mt-10 px-11 font-Poppins">
       <div class="w-[95%] h-full shadow-md">
@@ -22,183 +22,118 @@
               ><i class="fa-solid fa-arrow-left" style="color: #222"></i
             ></a>
           </li>
-          <li>Mẫu CV</li>
         </ul>
       </div>
     </header>
+    <div class="flex items-center w-[90%] mx-auto justify-start mt-8">
+      <button
+        id="btnCreateCV"
+        class="h-10 text-xl font-semibold text-white bg-black rounded w-44 hover:opacity-75">
+        Create CV
+      </button>
+    </div>
     <div class="flex items-center justify-center py-10 font-Poppins text-dark">
       <div class="flex flex-wrap w-[90%] shadow-2xl shadow-slate-600">
         <div class="flex flex-col gap-3 w-[30%] px-6 py-7">
-          <h1 class="text-3xl font-bold uppercase text-[#222]">
-            Đinh Lê Trung Hiếu
-          </h1>
-          <h2 class="mb-2 text-xl font-semibold text-primary">
-            What's your occupation?
-          </h2>
-          <div class="flex flex-row items-center gap-4 w-full">
-            <i id="jobIcon" class="fa-solid fa-plus cursor-pointer"></i>
-            <div id="displayJob"></div>
+          <div class="flex flex-row items-center gap-3 mb-3">
+            <h2 class="text-xl font-semibold text-primary">Your name</h2>
+            <input
+              type="text"
+              spellcheck="false"
+              class="fullname w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
           </div>
+
+          <div class="flex flex-row items-center gap-3 mb-3">
+            <h2 class="text-xl font-semibold text-primary">Occupation</h2>
+            <input
+              type="text"
+              spellcheck="false"
+              class="workPosition w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          </div>
+
+          <h2 class="mb-2 text-xl font-semibold text-primary">
+            Introduce yourself
+          </h2>
+          <div id="descriptonIconUI">
+            <i id="descriptonIcon" class="cursor-pointer fa-solid fa-plus"></i>
+          </div>
+          <div id="displayDescripton" class="flex flex-row gap-3"></div>
           <h3 class="text-lg font-semibold text-primary">Add your Contact</h3>
           <ul class="flex flex-col gap-4 mb-8">
             <li class="flex flex-row items-center mb-4">
-              <i class="fa-solid fa-envelope mr-2"></i>
-              <i
-                id="emailIcon"
-                class="fa-solid fa-plus cursor-pointer mr-4"></i>
+              <i class="mr-2 fa-solid fa-envelope"></i>
+              <div id="emailIconUI">
+                <i
+                  id="emailIcon"
+                  class="mr-4 cursor-pointer fa-solid fa-plus"></i>
+              </div>
               <div id="displayEmail"></div>
             </li>
             <li class="flex flex-row items-center mb-4">
               <i class="fa-brands fa-linkedin mr-[10px]"></i>
-              <div id="displayLinkedin">
+              <div id="linkedinIconUI">
                 <i
                   id="linkedinIcon"
-                  class="fa-solid fa-plus cursor-pointer"></i>
+                  class="cursor-pointer fa-solid fa-plus"></i>
               </div>
+              <div id="displayLinkedin"></div>
             </li>
             <li class="flex flex-row items-center mb-4">
-              <i class="fa-solid fa-phone mr-2"></i>
-              <div id="displayPhone">
-                <i id="phoneIcon" class="fa-solid fa-plus cursor-pointer"></i>
+              <i class="mr-2 fa-solid fa-phone"></i>
+              <div id="phoneIconUI">
+                <i id="phoneIcon" class="cursor-pointer fa-solid fa-plus"></i>
               </div>
+              <div id="displayPhone"></div>
             </li>
           </ul>
-          <div class="flex flex-col gap-3 relative">
+          <div class="relative flex flex-col gap-3">
             <label for="inputField">Enter Skill or Tool:</label>
             <input
               type="text"
               id="inputField"
               spellcheck="false"
-              class="w-[300px] h-[30px] border px-2 py-3" />
+              class="w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
             <ul
               class="hidden absolute left-0 top-20 bg-white w-full h-[500px] overflow-y-auto"
               id="suggestionList"></ul>
-            <div id="selectedSkills"></div>
           </div>
           <p>or create</p>
           <h3 class="text-lg font-semibold text-primary">Your Skills</h3>
           <ul id="displaySkills" class="flex flex-col gap-3 mb-8">
-            <i id="skillsIcon" class="fa-solid fa-plus cursor-pointer"></i>
+            <i id="skillsIcon" class="cursor-pointer fa-solid fa-plus"></i>
           </ul>
           <h3 class="text-lg font-semibold text-primary">Tools</h3>
           <ul id="displayTools" class="flex flex-col gap-3 mb-8">
-            <i id="toolsIcon" class="fa-solid fa-plus cursor-pointer"></i>
+            <i id="toolsIcon" class="cursor-pointer fa-solid fa-plus"></i>
           </ul>
           <div id="selectedSkills"></div>
         </div>
         <div class="w-[70%] py-7 pr-7">
-          <div class="flex flex-col gap-3 bg-[#F9F9F9] rounded-lg px-6 py-7">
-            <h1 class="text-xl text-[#222] font-bold">Front-end Development</h1>
-            <h3 class="text-lg font-semibold text-primary">
-              Fintef, Oct 2019 - Present
-            </h3>
-            <ul class="mb-8 ml-5">
-              <li class="list-disc">
-                Designed end-to-end experience for financial products on mobile
-                & web platforms.
-              </li>
-              <li class="list-disc">
-                Worked closely with managers, marketing specialists and
-                developers.
-              </li>
-              <li class="list-disc">
-                Did user testing sessions to gather feedback, validate product
-                features and brand perception.
-              </li>
-              <li class="list-disc">
-                Conducted A/B tests for product features and design variations.
-              </li>
-              <li class="list-disc">
-                Led the design process during of the internal rebranding
-                project.
-              </li>
-              <li class="list-disc">
-                Supported the engineering team with design deliverables.
-              </li>
-            </ul>
-            <h1 class="text-xl text-[#222] font-bold">UX Designer</h1>
-            <h3 class="text-lg font-semibold text-primary">
-              Resume Worded, Sep 2017 – Sep 2019
-            </h3>
-            <ul class="mb-8 ml-5">
-              <li class="list-disc">
-                Rewamped website flows and navigation menus, reducing the
-                frequency of misdirected customer service queries by 30%.
-              </li>
-              <li class="list-disc">
-                Conducted user testing with 10+ participants using
-                UserTesting.com; designed against findings which reduced bounce
-                rate for primary user flow by 30%.
-              </li>
-            </ul>
-            <h1 class="text-xl text-[#222] font-bold">Associate UX Designer</h1>
-            <h3 class="text-lg font-semibold text-primary">
-              Growshi, Dec 2016 – Aug 2017
-            </h3>
-            <ul class="mb-8 ml-5">
-              <li class="list-disc">
-                Redesigned company’s homepage and lead generation forms using
-                existing design system; reduced bounce rates by 40% and
-                increased leads by 15%.
-              </li>
-              <li class="list-disc">
-                Designed online customer support center comprising of a
-                self-service knowledge base and interactive chat bot. Coached 15
-                summer interns.
-              </li>
-            </ul>
-            <h1 class="text-xl text-[#222] font-bold">UX Analyst</h1>
-            <h3 class="text-lg font-semibold text-primary">
-              Growshi, Mar 2016 – Dec 2016
-            </h3>
-            <ul class="mb-8 ml-5">
-              <li class="list-disc">
-                Managed redesign of internal tracking system in use by 125
-                employees, resulting in 20+ new features and 25% higher
-                engagement.
-              </li>
-              <li class="list-disc">
-                Worked with product managers to validate design hypothesis by
-                conducting interviews and usability sessions.
-              </li>
-            </ul>
+          <div
+            id="displayExperience"
+            class="flex flex-col gap-3 bg-[#F9F9F9] rounded-lg px-6 py-7">
+            <div class="flex flex-row items-center gap-4">
+              <h1 class="text-xl text-[#222] font-bold">Experience</h1>
+              <i
+                id="experienceIcon"
+                class="cursor-pointer fa-solid fa-plus"></i>
+            </div>
+            <div class="h-0.5 w-full bg-black mb-5"></div>
           </div>
         </div>
         <div class="w-full px-6 pb-7">
-          <div class="flex flex-row px-10 py-10 w-full rounded-xl bg-[#F9F9F9]">
-            <div class="flex flex-col gap-3 w-[50%]">
-              <h3 class="mb-6 text-lg font-semibold text-primary">
-                Education & Learning
-              </h3>
-              <h1 class="text-xl text-[#222] font-bold">
-                Master’s in Human-Computer Interaction
-              </h1>
-              <p class="mb-8">
-                Copenhagen School of Design and Technology, Sep 2015 – Jun 2016
-              </p>
-              <h1 class="text-xl text-[#222] font-bold">Bachelor's of Arts</h1>
-              <p>
-                Copenhagen School of Design and Technology, Sep 2011 – Jun 2015
-              </p>
+          <div class="flex flex-col px-10 py-10 w-full rounded-xl bg-[#F9F9F9]">
+            <div class="flex flex-col w-[30%] gap-4">
+              <div class="flex flex-row items-center gap-4">
+                <h3 class="text-lg font-semibold text-primary">
+                  Education & Learning
+                </h3>
+                <i
+                  id="educationIcon"
+                  class="cursor-pointer fa-solid fa-plus"></i>
+              </div>
             </div>
-            <div class="flex flex-col gap-3 w-[50%]">
-              <h1 class="text-xl text-[#222] font-bold">
-                Design Leadership Masterclass
-              </h1>
-              <p class="mb-8">Design Lab Inc., Mar 2020</p>
-              <h1 class="text-xl text-[#222] font-bold">
-                UX: Interaction Design
-              </h1>
-              <p class="mb-8">Trydesignlab.com, Dec 2017</p>
-              <h1 class="text-xl text-[#222] font-bold">
-                UX Design Specialization
-              </h1>
-              <p class="mb-8">Udacity.com, online course by Google, Aug 2016</p>
-              <h1 class="text-xl text-[#222] font-bold">
-                Branding fundamentals
-              </h1>
-              <p class="mb-8">Design Lab Inc., Nov 2014</p>
-            </div>
+            <div id="displayEducation" class="flex flex-wrap gap-20"></div>
           </div>
         </div>
       </div>
