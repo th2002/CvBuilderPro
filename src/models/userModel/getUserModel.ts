@@ -19,11 +19,17 @@ export default class UserService {
         }
     }
 
-    // tìm user trong api
+    // tìm user trong api cho handle login
     getUser(username: string, password: string): User | null {
         return this.users.find(
             (u) => u.username === username && u.password === password
         ) || null;
+    }
+
+    async getUserById(userId: number): Promise<User> {
+        const res = await axios.get(`https://dlfkjf-8080.csb.app/users/${userId}`)
+        const user = res.data
+        return user;
     }
 
     // find cv where user id
@@ -44,7 +50,7 @@ export default class UserService {
         }
     }
 
-    getAllCV(userId: number): any | null {
+    getAllCV(userId: number): any[] | null {
         try {
             const user = this.users.find(u => u.id === userId);
 

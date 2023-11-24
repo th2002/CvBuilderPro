@@ -6,21 +6,21 @@ export interface Experience {
     description: string;
 }
 
-interface Education {
+export interface Education {
     degree: string;
     major: string;
     school: string;
     graduationYear: number;
 }
 
-interface PersonalInfo {
-    fullName: string;
-    email: string;
+export interface PersonalInfo {
+    fullName: string ;
+    email: string ;
     linkedin: string;
     phone: string;
 }
 
-interface CVSection {
+export interface CVSection {
     nominee: string;
     personalInfo: PersonalInfo;
     education: Education[];

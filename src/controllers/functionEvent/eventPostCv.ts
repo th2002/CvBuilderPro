@@ -77,7 +77,7 @@ skillsIcon.addEventListener("click", () => {
       <input
       type="text"
       spellcheck="false"
-      class="skillInput ml-2 w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none appearance-none" />
+      class="skillInput w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none appearance-none" />
       <i id="binSkill${iSkillInput}" onclick="eventBin.removeSkillInput('skillInput${iSkillInput}')" class="fa-solid fa-trash-can cursor-pointer"></i>
     </div>
   `
@@ -96,7 +96,7 @@ toolsIcon.addEventListener("click", () => {
       <input
       type="text"
       spellcheck="false"
-      class="toolInput ml-2 w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none appearance-none" />
+      class="toolInput w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none appearance-none" />
       <i id="binTool${iToolInput}" onclick="eventBin.removeToolInput('toolInput${iToolInput}')" class="fa-solid fa-trash-can cursor-pointer"></i>
     </div>
   `
@@ -126,27 +126,34 @@ function suggestSkillsAndTools(input: string): SuggestedData {
   };
 }
 
-function renderSelectedSkill(skill: string) {
+function renderSelectedSkill(skill: string, i: number) {
   // Tạo một thẻ span để hiển thị kỹ năng đã chọn
-    const selectedSkillTag = document.createElement("span");
-    selectedSkillTag.classList.add("skillSpan")
-    selectedSkillTag.textContent = skill;
+    const htmlSpanSkill = `
+      <div id="spanSkill${i}" class="flex flex-row gap-4 items-center">
+        <span class="skillSpan w-[100px]">${skill}</span>
+        <i onclick="eventBin.removeSkillSpan('spanSkill${i}')" class="fa-solid fa-trash-can cursor-pointer"></i>
+      </div>
+    `
 
     // Thêm một thẻ span vào container skills
-    displaySkills.insertBefore(selectedSkillTag, displaySkills.firstChild);
+    displaySkills.insertAdjacentHTML('beforebegin', htmlSpanSkill);
 }
 
-function renderSelectedTool(tool: string) {
-  // Tạo một thẻ span để hiển thị kỹ năng đã chọn
-    const selectedToolTag = document.createElement("span");
-    selectedToolTag.classList.add("toolSpan")
-    selectedToolTag.textContent = tool;
+function renderSelectedTool(tool: string, i: number) {
+   const htmlSpanTool = `
+      <div id="toolSpan${i}" class="flex flex-row gap-4 items-center">
+        <span class="toolSpan w-[100px]">${tool}</span>
+        <i onclick="eventBin.removeToolSpan('toolSpan${i}')" class="fa-solid fa-trash-can cursor-pointer"></i>
+      </div>
+    `
 
-    // Thêm một thẻ span vào container tools
-    displayTools.insertBefore(selectedToolTag, displayTools.firstChild);
+    // Thêm một thẻ span vào container skills
+    displayTools.insertAdjacentHTML('beforebegin', htmlSpanTool);
 }
 
 let prevInputValue = "";
+let iSpanSkill: number = 0;
+let iSpanTool: number = 0;
 
 function handleInputChange() {
   const inputField = document.getElementById("inputField") as HTMLInputElement;
@@ -173,8 +180,9 @@ function handleInputChange() {
           suggestionList.classList.remove("hidden")
 
           listItem.addEventListener("click", () => {
+            iSpanSkill++
             // render dữ liệu đã chọn vào container
-            renderSelectedSkill(suggestion);
+            renderSelectedSkill(suggestion, iSpanSkill);
             // clear dropdown ul khi đã chọn 1 option li
             suggestionList.innerHTML = "";
             inputField.value = ""
@@ -193,8 +201,9 @@ function handleInputChange() {
           suggestionList.classList.remove("hidden")
 
           listItem.addEventListener("click", () => {
+            iSpanTool++
             // render dữ liệu đã chọn vào container
-            renderSelectedTool(suggestion);
+            renderSelectedTool(suggestion, iSpanTool);
             // clear dropdown ul khi đã chọn 1 option li
             suggestionList.innerHTML = "";
             inputField.value = ""
@@ -225,38 +234,38 @@ let iExp = 0;
 experienceIcon.addEventListener('click', () => {
   iExp += 1;
   let htmlContent = `
-    <div id="expChildrenDisplay${iExp}">
+    <div id="expChildrenDisplay${iExp}" class="flex flex-col gap-3">
       <i id="binExpIcon${iExp}" onclick="eventBin.removeExpChildrenDisplay('expChildrenDisplay${iExp}')" class="fa-solid fa-trash-can cursor-pointer"></i>
       <div class="flex flex-row gap-4 items-center">
-        <p>Job position</p>
+        <p class="w-[110px]">Job position</p>
         <input
           type="text"
           spellcheck="false"
-          class="jobPosition w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="jobPosition w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
       <div class="flex flex-row gap-4 items-center">
-        <p>Company</p>
+        <p class="w-[110px]">Company</p>
         <input
           type="text"
           spellcheck="false"
-          class="company w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="company w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
       <div class="flex flex-row gap-4 items-center">
-        <p>Start Date</p>
+        <p class="w-[110px]">Start Date</p>
         <input
           type="date"
           spellcheck="false"
-          class="startDate w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="startDate w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
       <div class="flex flex-row gap-4 items-center">
-        <p>End Date</p>
+        <p class="w-[110px]">End Date</p>
         <input
           type="date"
           spellcheck="false"
-          class="endDate w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="endDate w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
       <div class="flex flex-row gap-4 items-start mt-4">
-        <p>Description</p>
+        <p class="w-[110px]">Description</p>
         <textarea
           spellcheck="false"
           name="expDescription"
@@ -281,32 +290,32 @@ educationIcon.addEventListener('click', () => {
     <div id="eduChildrenDisplay${iEducation}" class="flex flex-col gap-4 mt-5">
     <i id="binEdu${iEducation}" onclick="eventBin.removeEduChildrenDisplay('eduChildrenDisplay${iEducation}')" class="fa-solid fa-trash-can cursor-pointer"></i>
       <div class="flex flex-row gap-4 items-center">
-        <p>Major</p>
+        <p class="w-[130px]">Major</p>
         <input
           type="text"
           spellcheck="false"
-          class="major${iEducation} w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="major w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
       <div class="flex flex-row gap-4 items-center">
-        <p>Degree</p>
+        <p class="w-[130px]">Degree</p>
         <input
           type="text"
           spellcheck="false"
-          class="degree${iEducation} w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="degree w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
       <div class="flex flex-row gap-4 items-center">
-        <p>School</p>
+        <p class="w-[130px]">School</p>
         <input
           type="text"
           spellcheck="false"
-          class="school${iEducation} w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="school w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
       <div class="flex flex-row gap-4 items-center">
         <p>Graduation Year</p>
         <input
           type="text"
           spellcheck="false"
-          class="graduationYear${iEducation} w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none" />
+          class="graduationYear w-[300px] h-[30px] border-b-2 border-black px-2 py-3 focus:outline-none bg-[#F9F9F9]" />
       </div>
     </div>
   `
@@ -323,6 +332,8 @@ declare global {
       removePhone: () => void;
       removeSkillInput: (idSkillInput: string) => void;
       removeToolInput: (idToolInput: string) => void;
+      removeSkillSpan: (idSkillChildrenDiv: string) => void;
+      removeToolSpan: (idToolChildrenDiv: string) => void;
       removeExpChildrenDisplay: (idExpChildrenDisplay: string) => void;
       removeEduChildrenDisplay: (idEduChildrenDisplay: string) => void;
     };
@@ -355,6 +366,12 @@ window.eventBin = {
   },
   removeToolInput: (idToolInput: string) => {
     document.getElementById(idToolInput).remove();
+  },
+  removeSkillSpan: (idDiv: string) => {
+    document.getElementById(idDiv).remove();
+  },
+  removeToolSpan: (idDiv: string) => {
+    document.getElementById(idDiv).remove();
   },
   removeExpChildrenDisplay: (id: string) => {
     document.getElementById(id).remove();
