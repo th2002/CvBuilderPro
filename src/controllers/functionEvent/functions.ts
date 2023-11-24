@@ -1,7 +1,9 @@
 import UserController from "../userController/userClassController";
 import UserService from "../../models/userModel/getUserModel";
 import { CV } from "../../entity/user";
+import { API_CV } from "../../API/api";
 import Swal from "sweetalert2";
+import axios from "axios";
 
 export function login() {
   const nameInput = document.getElementById("nameInput") as HTMLInputElement;
@@ -100,3 +102,51 @@ export async function getCvDetail(): Promise<CV | null> {
   }
 }
 
+export async function handleDeleteCv(cvId: number, e: Event) {
+  e.preventDefault();
+
+  const userService = new UserService();
+  const userController = new UserController();
+  const userId = userController.getLocalStorageItem("userId");
+
+  const user = await userService.getUserById(parseInt(userId, 10));
+
+  // Lọc ra danh sách CV muốn giữ lại (không bao gồm CV cần xóa)
+  user.cvList = user.cvList.filter((cv) => cv.cvId !== cvId);
+
+  Swal.fire({
+    position: "center",
+    icon: "success",
+    title: "Delete a successful cv",
+    showConfirmButton: false,
+    timer: 1500,
+  });
+
+  Swal.fire({
+    imageUrl:
+      "https://img5.thuthuatphanmem.vn/uploads/2021/12/08/hic-hic_094558107.jpg",
+    imageWidth: 300,
+    imageHeight: 320,
+    title: "Are you sure?",
+    text: "You won't be able to revert this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, delete it!",
+  }).then((result) => {
+    if (result.isConfirmed) {
+
+      axios.patch(`${API_CV}/${userId}`, user)
+        .then(() => {
+          document.getElementById(`cv${cvId}`).remove()
+
+          Swal.fire({
+            title: "Deleted!",
+            text: "Your file has been deleted.",
+            icon: "success",
+          });
+        })
+    }
+  });
+}

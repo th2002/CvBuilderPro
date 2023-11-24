@@ -246,6 +246,7 @@ document.getElementById("btnCreateCV").addEventListener("click", async () => {
           user.cvList.push(CV)
         }
         axios.patch(`${API_CV}/${userId}`, user)
+          .then(() => { location.href = './home.html' })
       });
     };
   });

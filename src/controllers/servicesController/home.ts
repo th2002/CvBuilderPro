@@ -1,5 +1,6 @@
 import { logout } from "../functionEvent/functions";
 import { getAllCVByUserId } from "../functionEvent/functions";
+import { handleDeleteCv } from "../functionEvent/functions";
 
 const btnNextPageAddCv = document.getElementById(
   "btnNextPageAddCv"
@@ -26,6 +27,7 @@ btnLogout.addEventListener("click", logout);
       for (let cv of listCV) {
         htmlContent += `
           <div
+            id="cv${cv.cvId}"
             class="shadow-md shadow-slate-600 overflow-hidden group relative h-[300px] bg-black">
             <div
               class="absolute top-0 bottom-0 left-0 right-0 z-40 bg-black bg-opacity-50"></div>
@@ -51,6 +53,7 @@ btnLogout.addEventListener("click", logout);
               }
             </p>
             <i
+              onclick="handleDeleteCv(${cv.cvId}, event)"
               class="fa-solid fa-trash-can animate-bounce z-50 cursor-pointer absolute left-3 top-[90%] text-white"></i>
             <img
               width="300"
@@ -68,3 +71,15 @@ btnLogout.addEventListener("click", logout);
 
   
 })();
+
+declare global {
+  interface Window {
+    handleDeleteCv: (cvId: number, e: Event) => Promise<void>;
+  }
+}
+
+window.handleDeleteCv = (cvId, e) => handleDeleteCv(cvId, e);
+
+
+
+
