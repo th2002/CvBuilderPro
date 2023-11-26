@@ -11,7 +11,7 @@ import { getCurrentDate } from "../functionEvent/functions"
 import Swal from "sweetalert2";
 import axios from "axios";
 
-document.getElementById("btnCreateCV").addEventListener("click", async () => {
+document.getElementById('btnUpdateCV').addEventListener('click', async () => {
   // Info
   const fullname = document.querySelector(".fullname")! as HTMLInputElement;
   const fullnameValue = fullname.value;
@@ -177,16 +177,6 @@ document.getElementById("btnCreateCV").addEventListener("click", async () => {
     });
   }
 
-  const userService = new UserService();
-  const userController = new UserController();
-  const userId = userController.getLocalStorageItem("userId");
-
-  await userService.getUsersFromAPI();
-  const cvListByUserId = userService.getAllCV(parseInt(userId, 10));
-  const cvIdHigher = cvListByUserId[cvListByUserId.length - 1].cvId;
-
-  const toDay = getCurrentDate();
-
   // lưu thông tin person
   const personalInfo: PersonalInfo = {
     fullName: fullname.value,
@@ -198,15 +188,39 @@ document.getElementById("btnCreateCV").addEventListener("click", async () => {
   const skills = [...skillInputValues, ...skillSpansValues];
   const tools = [...toolInputValues, ...toolSpansValues];
 
+  const userService = new UserService();
+  const userController = new UserController();
+  const userId: string = userController.getLocalStorageItem("userId");
+
+  await userService.getUsersFromAPI();
+  const cvListByUserId: CV[] = userService.getAllCV(parseInt(userId, 10));
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const cvId = urlParams.get("id");
+
+  const cvCurrent: CV = cvListByUserId.find(cv => cv.cvId === parseInt(cvId, 10))
+  let indexCvCurrent: number
+
+  // tìm index của cv hiện tại trong mảng cvList => phục vụ cho việc PATCH update CV
+  for(let i = 0; i < cvListByUserId.length; i++) {
+    if(cvListByUserId[i].cvId === cvCurrent.cvId) {
+      indexCvCurrent = i
+      break
+    }
+  }
+
+  const toDay = getCurrentDate();
+
   let titleCV = "";
 
-  Swal.fire({
-    title: "Please give your cv a title",
+   Swal.fire({
+    title: "Please confirm your cv a title",
     imageUrl:
-      "https://s.memehay.com/files/posts/20210126/meo-vang-dua-ngon-tay-like.jpg",
-    imageWidth: 475,
-    imageHeight: 400,
+      "https://sendidau.com/wp-content/uploads/2021/01/meme-meo-dang-yeu.jpg",
+    imageWidth: 280,
+    imageHeight: 350,
     input: "text",
+    inputValue: `${cvCurrent.title}`,
     inputAttributes: {
       autocapitalize: "off",
     },
@@ -220,7 +234,7 @@ document.getElementById("btnCreateCV").addEventListener("click", async () => {
   }).then((result) => {
     if (result.isConfirmed) {
       const CV: CV = {
-        cvId: cvIdHigher + 1,
+        cvId: cvCurrent.cvId,
         title: titleCV,
         description: descriptionValue,
         sections: {
@@ -231,14 +245,14 @@ document.getElementById("btnCreateCV").addEventListener("click", async () => {
           skills: skills,
           tools: tools,
         },
-        createDate: toDay,
-        updateDate: "",
+        createDate: cvCurrent.createDate,
+        updateDate: toDay,
       };
 
       Swal.fire({
         position: "center",
         icon: "success",
-        title: "Create a successful cv",
+        title: "Update a successful cv",
         showConfirmButton: false,
         timer: 1500,
       })
@@ -246,11 +260,11 @@ document.getElementById("btnCreateCV").addEventListener("click", async () => {
         const user = await userService.getUserById(parseInt(userId, 10))
 
         if (user) {
-          user.cvList.push(CV)
+          user.cvList[indexCvCurrent] = CV
         }
         axios.patch(`${API_CV}/${userId}`, user)
-          .then(() => { location.href = './home.html' })
+          .then(() => { location.href = `./form.html?id=${cvCurrent.cvId}` })
       });
     };
   });
-});
+})

@@ -150,3 +150,15 @@ export async function handleDeleteCv(cvId: number, e: Event) {
     }
   });
 }
+                                     
+export function getCurrentDate(): string {
+  const today = new Date();
+
+  const year = today.getFullYear();
+  const month = (today.getMonth() + 1).toString().padStart(2, "0"); // Thêm số 0 đằng trước nếu tháng chỉ có 1 chữ số
+  const day = today.getDate().toString().padStart(2, "0"); // Thêm số 0 đằng trước nếu ngày chỉ có 1 chữ số
+
+  const currentDate = `${year}-${month}-${day}`;
+
+  return currentDate;
+}

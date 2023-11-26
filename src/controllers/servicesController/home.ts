@@ -40,7 +40,7 @@ btnLogout.addEventListener("click", logout);
             </h2>
             <div
               class="z-50 w-7 h-7 absolute bg-[#222] bg-opacity-50 rounded-full right-[20%] top-[70%]">
-              <a class="flex items-center justify-center w-full h-full" href="#"
+              <a class="flex items-center justify-center w-full h-full" href="./update_form.html?id=${cv.cvId}"
                 ><i class="text-xs text-white fa-solid fa-pen"></i
               ></a>
             </div>
