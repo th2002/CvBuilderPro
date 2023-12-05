@@ -1,106 +1,346 @@
-{
-  "users": [
+[
     {
-      "id": 1,
-      "username": "user1",
-      "password": "password1",
-      "personalInfo": {
-        "fullName": "Nguyen Van A",
-        "email": "user1@example.com",
-        "phone": "123456789"
-      },
-      "cvList": [
-        {
-          "cvId": 1,
-          "title": "CV 1",
-          "sections": {
-            "personalInfo": {
-              "fullName": "Nguyen Van A",
-              "email": "user1@example.com",
-              "phone": "123456789"
+        "id": 1,
+        "username": "admin",
+        "password": "123456",
+        "personalInfo": {
+            "fullName": "Đinh Lê Trung Hiếu",
+            "email": "dinhletrunghieu1501@gmail.com",
+            "linkedin": "www.linkedin.com/in/trunghieu1501",
+            "phone": "090123456789"
+        },
+        "cvList": [
+            {
+                "cvId": 1,
+                "title": "CV_dinhletrunghieu_1",
+                "description": "Passionate web designer with a flair for seamless UI/UX. Meticulous and creative, turning visions into captivating online experiences.",
+                "sections": {
+                    "nominee": "Font-end Devolepment",
+                    "personalInfo": {
+                        "fullName": "Đinh Lê Trung Thảo",
+                        "email": "dinhletrunghieu0207@gmail.com",
+                        "linkedin": "www.linkedin.com/in/trunghieu1501",
+                        "phone": "090123456789"
+                    },
+                    "education": [
+                        {
+                            "degree": "College",
+                            "major": "Website Design",
+                            "school": "FPT Polytechnic",
+                            "graduationYear": 2024
+                        }
+                    ],
+                    "experience": [
+                        {
+                            "title": "Software Developer",
+                            "company": "Company X",
+                            "startDate": "2023-11-24",
+                            "endDate": "2023-11-30",
+                            "description": "Passionate software developer with a knack for problem-solving and creating efficient, scalable solutions. Proficient in multiple languages and frameworks, dedicated to continuous learning and innovation."
+                        },
+                        {
+                            "title": "Website Designer",
+                            "company": "Company Y",
+                            "startDate": "2023-11-24",
+                            "endDate": "2023-11-30",
+                            "description": "Creative website designer with a keen eye for aesthetics and functionality. Transforms concepts into visually appealing, user-friendly interfaces. Proficient in HTML, CSS, and responsive design, ensuring seamless user experiences."
+                        },
+                        {
+                            "title": "UX - UI",
+                            "company": "Company Z",
+                            "startDate": "2023-11-24",
+                            "endDate": "2023-11-30",
+                            "description": "Detail-oriented UX/UI designer focused on enhancing user satisfaction. Applies a user-centered design approach to create intuitive interfaces. Adept at wireframing, prototyping, and collaborating with cross-functional teams to deliver exceptional designs."
+                        },
+                        {
+                            "title": "Tester",
+                            "company": "Company P",
+                            "startDate": "2023-11-24",
+                            "endDate": "2023-11-30",
+                            "description": "Thorough and meticulous tester with a passion for ensuring software quality. Proficient in manual and automated testing methodologies. Identifies and addresses defects, ensuring the delivery of reliable and bug-free software products."
+                        }
+                    ],
+                    "skills": [
+                        "HTML5",
+                        "CSS3",
+                        "JavaScript",
+                        "Typescript",
+                        "React",
+                        "React Native",
+                        "Angular",
+                        "Vuejs",
+                        "Nextjs",
+                        "Node.js",
+                        "Expressjs",
+                        "Java",
+                        "PHP",
+                        "Unit Test",
+                        "Function Test"
+                    ],
+                    "tools": [
+                        "Figma",
+                        "Postman",
+                        "Trello",
+                        "Slack",
+                        "Vite",
+                        "Webpack",
+                        "Percel",
+                        "Vercel",
+                        "Deloy API JSON SERVER with Codesanbox",
+                        "Git",
+                        "GitHub",
+                        "GitLab"
+                    ]
+                },
+                "createDate": "20-11-2023",
+                "updateDate": "2023-11-27"
             },
-            "education": [
-              {
-                "degree": "Bachelor of Science",
-                "major": "Computer Science",
-                "school": "University A",
-                "graduationYear": 2020
-              }
-            ],
-            "experience": [
-              {
-                "title": "Software Developer",
-                "company": "Company X",
-                "startDate": "2020-01-01",
-                "endDate": "2022-01-01",
-                "description": "Worked on web development projects."
-              }
-            ],
-            "skills": [
-              "JavaScript",
-              "React",
-              "Node.js"
-            ],
-            "tools": [
-              "Figma",
-              "Postman",
-              "Trello",
-              "Slack"
-            ]
-          }
-        }
-      ]
+            {
+                "cvId": 2,
+                "title": "cv_dinhletrunghieu_5",
+                "description": "mô tả về tôi sau khi đã update",
+                "sections": {
+                    "nominee": "Web Designer",
+                    "personalInfo": {
+                        "fullName": "trunghieu123",
+                        "email": "dinhletrunghieu0207@gmail.com",
+                        "linkedin": "linked1212",
+                        "phone": "123436548"
+                    },
+                    "education": [
+                        {
+                            "degree": "cao đẳng",
+                            "major": "web design",
+                            "school": "fpt",
+                            "graduationYear": 2024
+                        },
+                        {
+                            "degree": "đại học",
+                            "major": "mobile",
+                            "school": "hutech",
+                            "graduationYear": 2018
+                        }
+                    ],
+                    "experience": [
+                        {
+                            "title": "web",
+                            "company": "fpt company",
+                            "startDate": "2015-01-24",
+                            "endDate": "2017-06-30",
+                            "description": "mô tả job sau khi đã update"
+                        },
+                        {
+                            "title": "App",
+                            "company": "hutech company",
+                            "startDate": "2018-07-30",
+                            "endDate": "",
+                            "description": "mô tả job 3"
+                        }
+                    ],
+                    "skills": [
+                        "ruby",
+                        "React",
+                        "Java",
+                        "đây là skill update"
+                    ],
+                    "tools": [
+                        "trello",
+                        "Git",
+                        "đây là tool update"
+                    ]
+                },
+                "createDate": "2023-11-24",
+                "updateDate": "2023-11-26"
+            },
+            {
+                "cvId": 3,
+                "title": "Namnt110@fe.edu.vn",
+                "description": "My name",
+                "sections": {
+                    "nominee": "Dev",
+                    "personalInfo": {
+                        "fullName": "Nam",
+                        "email": "123 cvpm qt",
+                        "linkedin": "",
+                        "phone": "098123456"
+                    },
+                    "education": [
+                        {
+                            "degree": "ThS",
+                            "major": "CNTT",
+                            "school": "DH CNTT QG Tp HCM",
+                            "graduationYear": 2008
+                        }
+                    ],
+                    "experience": [
+                        {
+                            "title": "teaching",
+                            "company": "FPT Education",
+                            "startDate": "2023-11-01",
+                            "endDate": "2023-11-27",
+                            "description": "FPT Polytechnic"
+                        }
+                    ],
+                    "skills": [
+                        "",
+                        "Biên dịch và Đóng gói: Webpack, Babel"
+                    ],
+                    "tools": [
+                        ""
+                    ]
+                },
+                "createDate": "2023-11-27",
+                "updateDate": ""
+            }
+        ]
     },
     {
-      "id": 2,
-      "username": "user2",
-      "password": "password2",
-      "personalInfo": {
-        "fullName": "Tran Thi B",
-        "email": "user2@example.com",
-        "phone": "987654321"
-      },
-      "cvList": [
-        {
-          "cvId": 2,
-          "title": "CV 2",
-          "sections": {
-            "personalInfo": {
-              "fullName": "Tran Thi B",
-              "email": "user2@example.com",
-              "phone": "987654321"
-            },
-            "education": [
-              {
-                "degree": "Master of Business Administration",
-                "major": "Finance",
-                "school": "University B",
-                "graduationYear": 2021
-              }
-            ],
-            "experience": [
-              {
-                "title": "Financial Analyst",
-                "company": "Company Y",
-                "startDate": "2021-02-01",
-                "endDate": "2023-02-01",
-                "description": "Performed financial analysis and forecasting."
-              }
-            ],
-            "skills": [
-              "Financial Analysis",
-              "Budgeting",
-              "Data Analysis"
-            ],
-            "tools": [
-              "Figma",
-              "Postman",
-              "Trello",
-              "Slack"
-            ]
-          }
-        }
-      ]
+        "id": 2,
+        "username": "user2",
+        "password": "password2",
+        "personalInfo": {
+            "fullName": "Tran Thi B",
+            "email": "user2@example.com",
+            "phone": "987654321"
+        },
+        "cvList": [
+            {
+                "cvId": 2,
+                "title": "CV 2",
+                "sections": {
+                    "personalInfo": {
+                        "fullName": "Tran Thi B",
+                        "email": "user2@example.com",
+                        "phone": "987654321"
+                    },
+                    "education": [
+                        {
+                            "degree": "Master of Business Administration",
+                            "major": "Finance",
+                            "school": "University B",
+                            "graduationYear": 2021
+                        }
+                    ],
+                    "experience": [
+                        {
+                            "title": "Financial Analyst",
+                            "company": "Company Y",
+                            "startDate": "2021-02-01",
+                            "endDate": "2023-02-01",
+                            "description": "Performed financial analysis and forecasting."
+                        }
+                    ],
+                    "skills": [
+                        "Financial Analysis",
+                        "Budgeting",
+                        "Data Analysis"
+                    ],
+                    "tools": [
+                        "Figma",
+                        "Postman",
+                        "Trello",
+                        "Slack"
+                    ]
+                }
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "username": "customer",
+        "password": "123456",
+        "personalInfo": {
+            "fullName": "Đinh Lê Trung Hiếu",
+            "email": "dinhletrunghieu0207@gmail.com",
+            "linkedin": "www.linkedin.com/in/trunghieu1501",
+            "phone": "090123456789"
+        },
+        "cvList": [
+            {
+                "cvId": 1,
+                "title": "CV_dinhletrunghieu_1",
+                "description": "Passionate web designer with a flair for seamless UI/UX. Meticulous and creative, turning visions into captivating online experiences.",
+                "sections": {
+                    "nominee": "Font-end Devolepment",
+                    "personalInfo": {
+                        "fullName": "Đinh Lê Trung Hiếu",
+                        "email": "dinhletrunghieu0207@gmail.com",
+                        "linkedin": "www.linkedin.com/in/trunghieu1501",
+                        "phone": "090123456789"
+                    },
+                    "education": [
+                        {
+                            "degree": "College",
+                            "major": "Website Design",
+                            "school": "FPT Polytechnic",
+                            "graduationYear": 2024
+                        }
+                    ],
+                    "experience": [
+                        {
+                            "title": "Software Developer",
+                            "company": "Company X",
+                            "startDate": "January, 2021",
+                            "endDate": "October, 2022",
+                            "description": "Passionate software developer with a knack for problem-solving and creating efficient, scalable solutions. Proficient in multiple languages and frameworks, dedicated to continuous learning and innovation."
+                        },
+                        {
+                            "title": "Website Designer",
+                            "company": "Company Y",
+                            "startDate": "Nov, 2022",
+                            "endDate": "July, 2024",
+                            "description": "Creative website designer with a keen eye for aesthetics and functionality. Transforms concepts into visually appealing, user-friendly interfaces. Proficient in HTML, CSS, and responsive design, ensuring seamless user experiences."
+                        },
+                        {
+                            "title": "UX - UI",
+                            "company": "Company Z",
+                            "startDate": "Dec, 2024",
+                            "endDate": "Nov, 2026",
+                            "description": "Detail-oriented UX/UI designer focused on enhancing user satisfaction. Applies a user-centered design approach to create intuitive interfaces. Adept at wireframing, prototyping, and collaborating with cross-functional teams to deliver exceptional designs."
+                        },
+                        {
+                            "title": "Tester",
+                            "company": "Company P",
+                            "startDate": "January, 2027",
+                            "endDate": "October, 2029",
+                            "description": "Thorough and meticulous tester with a passion for ensuring software quality. Proficient in manual and automated testing methodologies. Identifies and addresses defects, ensuring the delivery of reliable and bug-free software products."
+                        }
+                    ],
+                    "skills": [
+                        "HTML5",
+                        "CSS3",
+                        "JavaScript",
+                        "Typescript",
+                        "React",
+                        "React Native",
+                        "Angular",
+                        "Vuejs",
+                        "Nextjs",
+                        "Node.js",
+                        "Expressjs",
+                        "Java",
+                        "PHP",
+                        "Unit Test",
+                        "Function Test"
+                    ],
+                    "tools": [
+                        "Figma",
+                        "Postman",
+                        "Trello",
+                        "Slack",
+                        "Vite",
+                        "Webpack",
+                        "Percel",
+                        "Vercel",
+                        "Deloy API JSON SERVER with Codesanbox",
+                        "Git",
+                        "GitHub",
+                        "GitLab"
+                    ]
+                },
+                "createDate": "20-11-2023",
+                "updateDate": ""
+            }
+        ]
     }
-  ]
-}
+]

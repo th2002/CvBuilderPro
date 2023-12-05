@@ -85,7 +85,7 @@ import { format, parseISO } from 'date-fns';
         </div>
 
         <div class="w-[70%] py-7 pr-7">
-          <div class="flex flex-col gap-3 bg-[#F9F9F9] rounded-lg px-6 py-7">
+          <div style="min-height: 800px" class="flex flex-col gap-3 bg-[#F9F9F9] rounded-lg px-6 py-7">
             ${experience}
           </div>
         </div>
